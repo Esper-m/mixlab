@@ -448,15 +448,45 @@ h6 {
     margin-bottom: 0.375rem;
   }
 }
+.links-list__link {
+  position: relative;
+}
 @media (max-width: 47.99875em) {
   .links-list__link {
     padding: 0.3125rem;
   }
 }
-.links-list__link:hover {
-  color: #fff;
-  border-bottom: 1px solid #fff;
-  transition: all 0.3s ease 0s;
+.links-list__link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 0%;
+  bottom: 0;
+  height: 0.0625rem;
+  background-color: #fff;
+  content: "";
+  transition: width 0.3s ease-out;
+}
+.links-list__link::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0.0625rem;
+  background-color: #fff;
+  content: "";
+  transition: width 0.3s ease-out;
+}
+@media (any-hover: hover) {
+  .links-list__link:hover::after {
+    width: 50%;
+  }
+  .links-list__link:hover::before {
+    width: 50%;
+  }
 }
 
 @media (max-width: 47.99875em) {
